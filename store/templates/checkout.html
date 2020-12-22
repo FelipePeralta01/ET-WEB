@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-lg-6">
+        <div class="box-element" id="form-wrapper">
+            <form id="form" action="">
+
+                <div id="user-info">
+                    <div class="form-field">
+                        <input required class="form-control" type="text" name="name" placeholder="Nombre...">
+                    </div>
+                    <div class="form-field">
+                        <input required class="form-control" type="email" name="email" placeholder="Correo electrónico...">
+                    </div>
+                </div>
+
+                <div id="shipping-info">
+                    <hr>
+                    <p>Dirección de envío</p>
+                    <hr>
+                    <div class="form-field">
+                        <input class="form-control" type="text" name="address" placeholder="Dirección...">
+                    </div>
+                    <div class="form-field">
+                        <input class="form-control" type="text" name="state" placeholder="Provincia...">
+                    </div>
+                    <div class="form-field">
+                        <input class="form-control" type="text" name="city" placeholder="Comuna...">
+                    </div>
+                </div>
+
+                <hr>
+                <input id="form-button" class="btn btn-success btn-block" type="submit" value="Continuar">
+
+            </form>
+        </div>
+        <br>
+
+        <div class="box-element hidden" id="payment-info">
+            <small>Opción Webpay</small>
+        </div>
+    </div>
+    <div class="col-lg-6">
+        <div class="box-element">
+            <a class="btn btn-outline-dark" href="{% url 'cart' %}">&#x2190;
+                Volver al carrito</a>
+            <hr>
+                <h3>Resumen del pedido</h3>
+            <hr>
+            <div class="cart-row">
+                <div style="flex: 2;"><img src="#" class="row-image"></div>
+                <div style="flex: 2;"><p>Producto</p></div>
+                <div style="flex: 1;">$$</div>
+                <div style="flex: 1;">x2</div>
+            </div>
+            <h5>Productos:</h5>
+            <h5>Total:</h5>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
