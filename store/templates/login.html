@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+            <div class="card card-signin my-5">
+                <div class="card-body">
+                    <h5 class="card-title text-center">Ingreso de usuarios</h5>
+                    <form class="form-signin" method="POST">
+                        {% csrf_token %}
+                        <div class="form-label-group">
+                            <input type="text" id="id_username" name="username" class="form-control" placeholder="Nombre de usuario"
+                                required autofocus>
+                            <span for="inputEmail">Nombre de usuario</span>
+                        </div>
+
+                        <div class="form-label-group">
+                            <input type="password" id="id_password" class="form-control" placeholder="Password"
+                                required name="password">
+                            <span for="inputPassword">Password</span>
+                        </div>
+                        <div class="custom-control custom-checkbox mb-3">
+                            
+                        </div>
+                        <input type="submit" value="Ingresar" name="accion" class="btn btn-lg btn-primary btn-block text-uppercase">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

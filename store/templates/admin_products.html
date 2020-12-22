@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<br>
+<div class="row center-xs">
+    {% for product in products %}
+    <div class="col-lg-4">
+        <div class="box-element product">
+            <h6><strong>{{product.name}}</strong></h6>
+            <hr>
+            <h6>{{product.price}}</h6>
+            <hr>
+            <a href="{% url 'update_product' id=product.id %}" class="btn btn-info btn-block"> Actualizar producto</a>
+            <a href="{% url 'delete_product' id=product.id %}" class="btn btn-danger btn-block"> Eliminar producto</a>
+        </div>
+    </div>
+    {% empty %}
+
+    <div class="col-xs-12">
+        aún no se han registrado Productos.
+    </div>
+
+    {% endfor %}
+</div>
+{% if is_paginated %}
+<div class="pagination row center-xs">
+    <span class="page-links col-xs-6">
+        {% if page_obj.has_previous %}
+        <a href="{{ request.path }}?page={{ page_obj.previous_page_number }}">previa</a>
+        {% endif %}
+        <span class="page-current">
+            Página {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}.
+        </span>
+        {% if page_obj.has_next %}
+        <a href="{{ request.path }}?page={{ page_obj.next_page_number }}">Siguiente</a>
+        {% endif %}
+    </span>
+</div>
+{% endif %}
+
+<hr>
+<div class="row center-xs">
+    <div class="col-xs-12 col-md-6 start-xs">
+        <form action="" method="POST">
+            {% csrf_token %}
+            <p><label for="id_name">Name:</label> <input type="text" name="name" maxlength="200" required=""
+                    id="id_name">
+            </p>
+            <p><label for="id_price">Price:</label> <input type="number" name="price" step="any" required=""
+                    id="id_price">
+            </p>
+            <input type="submit" value="Agregar" name="action" class="btn btn-success btn-block">
+        </form>
+    </div>
+</div>
+
+
+
+
+{% endblock %}
