@@ -6,9 +6,6 @@ urlpatterns = [
     path('mainstore', views.mainstore.as_view(), name="mainstore"),
     path('cart/', views.cart, name="cart"),
     path('checkout/', views.checkout, name="checkout"),
-    path('profile/', views.profile, name="profile"),
-    path('profileadmin/', views.profileadmin, name="profileadmin"),
-    path('register/', views.register, name="register"),
 
     path('login/', views.login, name="login"),
     path('cerrar_sesion/', views.cerrar_sesion, name="cerrar_sesion"),
